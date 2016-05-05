@@ -38,9 +38,24 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Collision.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Sprites\Pacman.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetUp\Maze.cs" />
+    <Compile Include="SetUp\SetUp.cs" />
+    <Compile Include="Sprites\Dot.cs" />
+    <Compile Include="Sprites\Fruit.cs" />
+    <Compile Include="Sprites\Ghost.cs" />
+    <Compile Include="Sprites\IDot.cs" />
+    <Compile Include="Sprites\ISprite.cs" />
+    <Compile Include="Sprites\SpriteBase.cs" />
+    <Compile Include="Sprites\SpriteDirection.cs" />
+    <Compile Include="Sprites\SpriteTypes.cs" />
+    <Compile Include="Sprites\SuperDot.cs" />
+    <Compile Include="Sprites\Wall.cs" />
+    <Compile Include="Sprites\WallType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -50,10 +65,63 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\FullPacMan.png" />
+    <Content Include="Content\Images\BottomLeft.png" />
+    <Content Include="Content\Images\BottomRight.png" />
+    <Content Include="Content\Images\Dot.png" />
+    <Content Include="Content\Images\Empty.png" />
+    <Content Include="Content\Images\Horizontal.png" />
+    <Content Include="Content\Images\Pacman.png" />
+    <Content Include="Content\Images\PacmanMove.png" />
+    <Content Include="Content\Images\SuperDot.png" />
+    <Content Include="Content\Images\TCrossHorizontalDown.png" />
+    <Content Include="Content\Images\TCrossHorizontalUp.png" />
+    <Content Include="Content\Images\TCrossVerticalLeft.png" />
+    <Content Include="Content\Images\TCrossVerticalRight.png" />
+    <Content Include="Content\Images\TopLeft.png" />
+    <Content Include="Content\Images\TopRight.png" />
+    <Content Include="Content\Images\Vertical.png" />
+    <Content Include="Content\wallCorner.png" />
+    <Content Include="Content\wallCrossRoad.png" />
+    <Content Include="Content\wallStraight.png" />
+    <Content Include="Content\wallTCross.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\bin\Windows\Images\BottomLeft.xnb" />
+    <None Include="Content\bin\Windows\Images\BottomRight.xnb" />
+    <None Include="Content\bin\Windows\Images\Dot.xnb" />
+    <None Include="Content\bin\Windows\Images\Empty.xnb" />
+    <None Include="Content\bin\Windows\Images\Horizontal.xnb" />
+    <None Include="Content\bin\Windows\Images\Pacman.xnb" />
+    <None Include="Content\bin\Windows\Images\PacmanMove.xnb" />
+    <None Include="Content\bin\Windows\Images\SuperDot.xnb" />
+    <None Include="Content\bin\Windows\Images\TCrossHorizontalDown.xnb" />
+    <None Include="Content\bin\Windows\Images\TCrossHorizontalUp.xnb" />
+    <None Include="Content\bin\Windows\Images\TCrossVerticalLeft.xnb" />
+    <None Include="Content\bin\Windows\Images\TCrossVerticalRight.xnb" />
+    <None Include="Content\bin\Windows\Images\TopLeft.xnb" />
+    <None Include="Content\bin\Windows\Images\TopRight.xnb" />
+    <None Include="Content\bin\Windows\Images\Vertical.xnb" />
+    <None Include="Content\obj\Windows\.mgcontent" />
+    <None Include="Content\obj\Windows\Images\BottomLeft.mgcontent" />
+    <None Include="Content\obj\Windows\Images\BottomRight.mgcontent" />
+    <None Include="Content\obj\Windows\Images\Dot.mgcontent" />
+    <None Include="Content\obj\Windows\Images\Empty.mgcontent" />
+    <None Include="Content\obj\Windows\Images\Horizontal.mgcontent" />
+    <None Include="Content\obj\Windows\Images\Pacman.mgcontent" />
+    <None Include="Content\obj\Windows\Images\PacmanMove.mgcontent" />
+    <None Include="Content\obj\Windows\Images\SuperDot.mgcontent" />
+    <None Include="Content\obj\Windows\Images\TCrossHorizontalDown.mgcontent" />
+    <None Include="Content\obj\Windows\Images\TCrossHorizontalUp.mgcontent" />
+    <None Include="Content\obj\Windows\Images\TCrossVerticalLeft.mgcontent" />
+    <None Include="Content\obj\Windows\Images\TCrossVerticalRight.mgcontent" />
+    <None Include="Content\obj\Windows\Images\TopLeft.mgcontent" />
+    <None Include="Content\obj\Windows\Images\TopRight.mgcontent" />
+    <None Include="Content\obj\Windows\Images\Vertical.mgcontent" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

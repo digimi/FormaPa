@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FormaPa
+namespace MonoPac
 {
 #if WINDOWS || LINUX
     /// <summary>

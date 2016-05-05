@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace FormaPa
+namespace MonoPac
 {
     /// <summary>
     /// This is the main type for your game.
@@ -12,11 +12,25 @@ namespace FormaPa
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Maze maze;
+        Pacman pacman;
+        
+
         public Game1()
         {
+            maze = new Maze(this);
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferHeight = 1152;
+            graphics.PreferredBackBufferWidth = 896;
             Content.RootDirectory = "Content";
         }
+
+        public SpriteBatch SpriteBatch
+        {
+            get { return spriteBatch; }
+            set { spriteBatch = value; }
+        }
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -39,8 +53,9 @@ namespace FormaPa
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            pacman = new Pacman(this, Content.Load<Texture2D>("Images/PacmanMove"), new Vector2(432, 832));
             // TODO: use this.Content to load your game content here
+            maze.LoadContent();
         }
 
         /// <summary>
@@ -63,6 +78,8 @@ namespace FormaPa
                 Exit();
 
             // TODO: Add your update logic here
+            maze.Update();
+            pacman.Update();
 
             base.Update(gameTime);
         }
@@ -73,9 +90,15 @@ namespace FormaPa
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            maze.Draw();
+            pacman.Draw();
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
