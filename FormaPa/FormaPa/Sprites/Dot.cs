@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace MonoPac
 {
-    public class Dot : SpriteBase, IDot
+    public class Dot : SpriteBase
     {
         public Dot(Game1 game,Texture2D texture , Vector2 position) : base(game)
         {
             this.Texture = texture;
             this.Position = position;
             this.Score = 10;
-            game.Content.Load<Texture2D>("dot");
         }
     }
 }

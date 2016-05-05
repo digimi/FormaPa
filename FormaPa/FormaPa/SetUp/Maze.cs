@@ -40,7 +40,7 @@ namespace MonoPac
                 {
                     foreach (var item in Walls)
                     {
-                        result.Add(item.HitBox);
+                        result.Add(item.Rectangle);
                     }
                 }
                 return result;
@@ -63,9 +63,8 @@ namespace MonoPac
             }
         }
 
-        private IEnumerable<SpriteBase> GenerateList(Game1 game)
+        private void GenerateList()
         {
-            List<SpriteBase> result = new List<SpriteBase>();
             int[,] ma = MazeArray();
 
             for (int i = 0; i < ma.GetLength(0); i++)
@@ -114,19 +113,14 @@ namespace MonoPac
                             Dots.Add(new Dot(game, dot, new Vector2(i * 32, j * 32)));
                             break;
                         case 17:
+                            //SuperDots.Add(new SuperDot(game, superDot, new Vector2(i * 32, j * 32)));
                             break;
                         default:
                             Walls.Add(new Wall(game, spriteEmpty, new Vector2(i * 32, j * 32)));
                             break;
                     }
-                    //result.Add(new SpriteBase(game,
-                    //    GetSpriteType(ma[i, j]),
-                    //    new Vector2(i * 32, j * 32)));
                 }
             }
-
-
-            return result;
         }
 
         internal void LoadContent()
@@ -140,6 +134,7 @@ namespace MonoPac
             spriteEmpty = game.Content.Load<Texture2D>("Images/Empty");
             dot = game.Content.Load<Texture2D>("Images/Dot");
             superDot = game.Content.Load<Texture2D>("Images/SuperDot");
+            this.GenerateList();
         }
 
         private SpriteTypes GetSpriteType(int v)
@@ -217,10 +212,10 @@ namespace MonoPac
 
         private int[,] MazeArray()
         {
-            int a = 2;
-            int b = 1;
-            int c = 4;
-            int d = 3;
+            int a = 1;
+            int b = 2;
+            int c = 3;
+            int d = 4;
             int[,] result = {
                 {0,0,0,a,5,5,5,5,5,5,5,5,c,0,0,0,6,0,6,0,0,0,a,5,5,5,5,c,a,5,5,5,5,c,0,0},
                 {0,0,0,6,16,16,17,16,16,16,16,16,6,0,0,0,6,0,6,0,0,0,6,16,16,16,17,6,6,16,16,16,16,6,0,0},

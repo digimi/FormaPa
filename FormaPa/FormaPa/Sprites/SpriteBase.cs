@@ -99,7 +99,7 @@ namespace MonoPac
 
         public Game1 Game { get; private set; }
 
-        public Rectangle HitBox
+        public Rectangle Rectangle
         {
             get
             {

@@ -6,16 +6,9 @@ namespace MonoPac
 {
     internal class Collision
     {
-        internal static bool Walls(List<Rectangle> hitBoxes, Pacman pacman)
+        internal static bool Hit(Rectangle first, Rectangle second)
         {
-            foreach (var wall in hitBoxes)
-            {
-                if (wall.Intersects(pacman.HitBox))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return first.Intersects(second);
         }
     }
 }

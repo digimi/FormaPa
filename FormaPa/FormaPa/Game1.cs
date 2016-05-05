@@ -18,7 +18,6 @@ namespace MonoPac
 
         public Game1()
         {
-            maze = new Maze(this);
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = 1152;
             graphics.PreferredBackBufferWidth = 896;
@@ -53,8 +52,9 @@ namespace MonoPac
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            pacman = new Pacman(this, Content.Load<Texture2D>("Images/PacmanMove"), new Vector2(432, 832));
+            pacman = new Pacman(this, Content.Load<Texture2D>("Images/Pacman"), new Vector2(432, 848));
             // TODO: use this.Content to load your game content here
+            maze = new Maze(this);
             maze.LoadContent();
         }
 
@@ -79,7 +79,7 @@ namespace MonoPac
 
             // TODO: Add your update logic here
             maze.Update();
-            pacman.Update();
+            pacman.Update(maze);
 
             base.Update(gameTime);
         }
