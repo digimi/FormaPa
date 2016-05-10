@@ -32,69 +32,7 @@ namespace MonoPac
             this.Texture = texture;
             this.Game = game;
             this.Position = position;
-
-            //switch (spriteType)
-            //{
-            //    case SpriteTypes.Empty:
-            //        Texture = game.Content.Load<Texture2D>("Images/Empty");
-            //        break;
-            //    case SpriteTypes.CrossRoad:
-            //        Texture = game.Content.Load<Texture2D>("Images/CrossRoad");
-            //        break;
-            //    case SpriteTypes.CornerUpLeft:
-            //        Texture = game.Content.Load<Texture2D>("Images/CornerUpLeft");
-            //        break;
-            //    case SpriteTypes.CornerUpRight:
-            //        Texture = game.Content.Load<Texture2D>("Images/CornerUpRight");
-            //        break;
-            //    case SpriteTypes.CornerDownLeft:
-            //        Texture = game.Content.Load<Texture2D>("Images/CornerDownLeft");
-            //        break;
-            //    case SpriteTypes.CornerDownRight:
-            //        Texture = game.Content.Load<Texture2D>("Images/CornerDownRight");
-            //        break;
-            //    case SpriteTypes.Vertical:
-            //        Texture = game.Content.Load<Texture2D>("Images/Vertical");
-            //        break;
-            //    case SpriteTypes.Horizontal:
-            //        Texture = game.Content.Load<Texture2D>("Images/Horizontal");
-            //        break;
-            //    case SpriteTypes.TCrossHorizontalUp:
-            //        Texture = game.Content.Load<Texture2D>("Images/TCrossHorizontalUp");
-            //        break;
-            //    case SpriteTypes.TCrossHorizontalDown:
-            //        Texture = game.Content.Load<Texture2D>("Images/TCrossHorizontalDown");
-            //        break;
-            //    case SpriteTypes.TCrossVerticalUp:
-            //        Texture = game.Content.Load<Texture2D>("Images/TCrossVerticalUp");
-            //        break;
-            //    case SpriteTypes.TCrossVerticalDown:
-            //        Texture = game.Content.Load<Texture2D>("Images/TCrossVerticalDown");
-            //        break;
-            //    case SpriteTypes.Pinky:
-            //        Texture = game.Content.Load<Texture2D>("Images/Pinky");
-            //        break;
-            //    case SpriteTypes.Inky:
-            //        Texture = game.Content.Load<Texture2D>("Images/Inky");
-            //        break;
-            //    case SpriteTypes.Blinky:
-            //        Texture = game.Content.Load<Texture2D>("Images/Blinky");
-            //        break;
-            //    case SpriteTypes.Clyde:
-            //        Texture = game.Content.Load<Texture2D>("Images/Clyde");
-            //        break;
-            //    case SpriteTypes.Pacman:
-            //        Texture = game.Content.Load<Texture2D>("Images/PacmanMove");
-            //        break;
-            //    case SpriteTypes.Dot:
-            //        Texture = game.Content.Load<Texture2D>("Images/Dot");
-            //        break;
-            //    case SpriteTypes.SuperDot:
-            //        Texture = game.Content.Load<Texture2D>("Images/SuperDot");
-            //        break;
-            //    default:
-            //        break;
-            //}
+          
         }
 
         public Game1 Game { get; private set; }
@@ -207,6 +145,8 @@ namespace MonoPac
         }
 
         public int Score { get; set; }
+
+        public List<TiledPosition> TiledPositions { get; set; }
 
         public void Draw()
         {

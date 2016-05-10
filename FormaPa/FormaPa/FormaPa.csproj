@@ -54,6 +54,7 @@
     <Compile Include="Sprites\SpriteDirection.cs" />
     <Compile Include="Sprites\SpriteTypes.cs" />
     <Compile Include="Sprites\SuperDot.cs" />
+    <Compile Include="Sprites\TiledPosition.cs" />
     <Compile Include="Sprites\Wall.cs" />
     <Compile Include="Sprites\WallType.cs" />
   </ItemGroup>

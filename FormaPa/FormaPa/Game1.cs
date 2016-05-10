@@ -52,7 +52,7 @@ namespace MonoPac
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            pacman = new Pacman(this, Content.Load<Texture2D>("Images/Pacman"), new Vector2(432, 848));
+            pacman = new Pacman(this, Content.Load<Texture2D>("Images/Pacman"), new Vector2(160, 16));
             // TODO: use this.Content to load your game content here
             maze = new Maze(this);
             maze.LoadContent();

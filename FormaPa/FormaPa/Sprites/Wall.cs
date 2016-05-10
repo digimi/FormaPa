@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using System.Collections.Generic;
 
 namespace MonoPac
 {
@@ -23,6 +24,7 @@ namespace MonoPac
 
         public int X { get; set; }
         public int Y { get; set; }
+
     }
 }
 
