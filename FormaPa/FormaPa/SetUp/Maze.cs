@@ -74,22 +74,22 @@ namespace MonoPac
                     switch (ma[i, j])
                     {
                         case 1:
-                            Walls.Add(new Wall(game, wallCornerTopLeft, new Vector2(i * 32, j * 32)));
+                            Walls.Add(new Wall(game, wallCornerTopLeft, new Vector2(i * 32 + 16, j * 32 + 16)));
                             break;
                         case 2:
-                            Walls.Add(new Wall(game, wallCornerTopRight, new Vector2(i * 32, j * 32)));
+                            Walls.Add(new Wall(game, wallCornerTopRight, new Vector2(i * 32 + 16, j * 32 + 16)));
                             break;
                         case 3:
-                            Walls.Add(new Wall(game, wallCornerBottomLeft, new Vector2(i * 32, j * 32)));
+                            Walls.Add(new Wall(game, wallCornerBottomLeft, new Vector2(i * 32 + 16, j * 32 + 16)));
                             break;
                         case 4:
-                            Walls.Add(new Wall(game, wallCornerBottomRight, new Vector2(i * 32, j * 32)));
+                            Walls.Add(new Wall(game, wallCornerBottomRight, new Vector2(i * 32 + 16, j * 32 + 16)));
                             break;
                         case 5:
-                            Walls.Add(new Wall(game, wallVertical, new Vector2(i * 32, j * 32)));
+                            Walls.Add(new Wall(game, wallVertical, new Vector2(i * 32 + 16, j * 32 + 16)));
                             break;
                         case 6:
-                            Walls.Add(new Wall(game, wallHorizontal, new Vector2(i * 32, j * 32)));
+                            Walls.Add(new Wall(game, wallHorizontal, new Vector2(i * 32 + 16, j * 32 + 16)));
                             break;
                         case 7:
                             break;
@@ -110,13 +110,13 @@ namespace MonoPac
                         case 15:
                             break;
                         case 16:
-                            Dots.Add(new Dot(game, dot, new Vector2(i * 32, j * 32)));
+                            Dots.Add(new Dot(game, dot, new Vector2(i * 32 + 16, j * 32 + 16)));
                             break;
                         case 17:
                             //SuperDots.Add(new SuperDot(game, superDot, new Vector2(i * 32, j * 32)));
                             break;
                         default:
-                            Walls.Add(new Wall(game, spriteEmpty, new Vector2(i * 32, j * 32)));
+                            //Walls.Add(new Wall(game, spriteEmpty, new Vector2(i * 32 + 16, j * 32 + 16)));
                             break;
                     }
                 }

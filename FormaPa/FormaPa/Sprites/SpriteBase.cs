@@ -21,6 +21,8 @@ namespace MonoPac
         private Color? color = Microsoft.Xna.Framework.Color.White;
         private SpriteEffects effects = SpriteEffects.None;
         private float layerDepth = 0.0f;
+        private int destinationY;
+        private int destinationX;
 
         public SpriteBase(Game1 game)
         {
@@ -32,7 +34,6 @@ namespace MonoPac
             this.Texture = texture;
             this.Game = game;
             this.Position = position;
-          
         }
 
         public Game1 Game { get; private set; }
@@ -41,7 +42,7 @@ namespace MonoPac
         {
             get
             {
-                return new Rectangle((int) Position.X, (int) Position.Y, 32,32);
+                return new Rectangle((int)Position.X, (int)Position.Y, 32, 32);
             }
         }
 
@@ -98,8 +99,15 @@ namespace MonoPac
 
         public Rectangle? DestinationRectangle
         {
-            get { return destinationRectangle; }
-            set { destinationRectangle = value; }
+            get
+            {
+                return destinationRectangle;
+            }
+            set {
+                this.destinationX = value.Value.X;
+                this.destinationY = value.Value.Y;
+                destinationRectangle = value;
+            }
         }
 
         public Rectangle? SourceRectangle
@@ -182,6 +190,28 @@ namespace MonoPac
                     this.Color,
                     this.Effects,
                     this.LayerDepth);
+            }
+        }
+
+        public int DestinationX
+        {
+            get
+            {
+                return this.destinationX;
+            }
+            set
+            {
+                destinationX = value;
+                destinationRectangle = new Rectangle(destinationX, destinationY, 32, 32);
+            }
+        }
+        public int DestinationY
+        {
+            get { return this.destinationY; }
+            set
+            {
+                destinationY = value;
+                destinationRectangle = new Rectangle(destinationX, destinationY, 32, 32);
             }
         }
 

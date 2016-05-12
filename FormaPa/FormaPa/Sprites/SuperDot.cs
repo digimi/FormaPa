@@ -12,6 +12,7 @@ namespace MonoPac
             this.Texture = texture;
             this.Score = 50;
             this.Scale *= 0.5f;
+            this.Origin = new Vector2(16, 16);
         }
     }
 }

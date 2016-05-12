@@ -14,6 +14,7 @@ namespace MonoPac
         {
             this.Texture = texture;
             this.Position = position;
+            this.Origin = new Vector2(16, 16);
             this.Score = 10;
         }
     }
