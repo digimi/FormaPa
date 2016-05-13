@@ -106,6 +106,7 @@ namespace MonoPac
             set {
                 this.destinationX = value.Value.X;
                 this.destinationY = value.Value.Y;
+                this.position = new Vector2(value.Value.X, value.Value.Y);
                 destinationRectangle = value;
             }
         }
@@ -190,6 +191,7 @@ namespace MonoPac
                     this.Color,
                     this.Effects,
                     this.LayerDepth);
+                this.Position = new Vector2(this.destinationX, this.destinationY);
             }
         }
 
