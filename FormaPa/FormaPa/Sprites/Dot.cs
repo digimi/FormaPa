@@ -10,12 +10,17 @@ namespace MonoPac
 {
     public class Dot : SpriteBase
     {
-        public Dot(Game1 game,Texture2D texture , Vector2 position) : base(game)
+        public Dot(Game1 game, Texture2D texture, Vector2 position) : base(game)
         {
             this.Texture = texture;
             this.Position = position;
             this.Origin = new Vector2(16, 16);
             this.Score = 10;
+        }
+
+        public Rectangle InnerRectangle
+        {
+            get { return new Rectangle((int)this.Position.X+15, (int)this.Position.Y+15, 1, 1); }
         }
     }
 }

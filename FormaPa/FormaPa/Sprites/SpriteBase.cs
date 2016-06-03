@@ -76,7 +76,7 @@ namespace MonoPac
                 switch (value)
                 {
                     case SpriteDirection.Up:
-                        rad = 0.0f;
+                        rad = ((float)Math.PI / 180.0f) * 25.0f;
                         break;
                     case SpriteDirection.Down:
                         rad = ((float)Math.PI / 180.0f) * 180.0f;
@@ -86,7 +86,7 @@ namespace MonoPac
                         this.rotation = 0.0f;
                         break;
                     case SpriteDirection.Right:
-                        rad = ((float)Math.PI / 180.0f) * 90.0f;
+                        rad = 0.0f;
                         break;
                     default:
                         rad = 0.0f;
@@ -215,6 +215,14 @@ namespace MonoPac
                 destinationY = value;
                 destinationRectangle = new Rectangle(destinationX, destinationY, 32, 32);
             }
+        }
+
+        public int Velocity { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"Position {GetType().Name} => X = {this.Position.X} : Y = {this.Position.Y} -- Top:{this.Rectangle.Top}, Left:{this.Rectangle.Left}, Bottom:{this.Rectangle.Bottom}, Right:{this.Rectangle.Right} -- Size = Height:{this.Rectangle.Height}, Width:{this.Rectangle.Width}";
         }
 
     }

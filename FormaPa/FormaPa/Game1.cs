@@ -22,6 +22,7 @@ namespace MonoPac
             graphics.PreferredBackBufferHeight = 1152;
             graphics.PreferredBackBufferWidth = 896;
             Content.RootDirectory = "Content";
+
         }
 
         public SpriteBatch SpriteBatch

@@ -25,6 +25,7 @@ namespace MonoPac
         {
             Origin = new Vector2(16, 16);
             DestinationRectangle = new Rectangle((int)position.X, (int)position.Y, 32, 32);
+            Velocity = 2;
         }
 
         internal void Update(Maze maze)
@@ -43,27 +44,27 @@ namespace MonoPac
             // mettre en place la direction suivante
             if (Keyboard.GetState().IsKeyDown(Keys.Down))
             {
-                nextY = 1;
+                nextY = Velocity;
                 nextX = 0;
-                y = 1;
+                y = Velocity;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
             {
-                nextY = -1;
+                nextY = -Velocity;
                 nextX = 0;
-                y = -1;
+                y = -Velocity;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
-                nextX = 1;
-                nextY = 0;
-                x = 1;
+                nextX = Velocity;
+                nextY = Velocity;
+                x = Velocity;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                nextX = -1;
+                nextX = -Velocity;
                 nextY = 0;
-                x = -1;
+                x = -Velocity;
             }
             // mettre en place la direction courante
 
@@ -89,14 +90,24 @@ namespace MonoPac
 
             this.SourceRectangle = new Rectangle(32 * col, 32 * row, 32, 32);
             if (this.DestinationX != currentRectangle.X)
-                this.SpriteDirection = (this.DestinationX > this.Position.X) ? SpriteDirection.Left : SpriteDirection.Right;
+                this.SpriteDirection = (this.DestinationX > this.Position.X) ? SpriteDirection.Up : SpriteDirection.Down;
             if (this.DestinationY != currentRectangle.Y)
-                this.SpriteDirection = (this.DestinationY > this.Position.Y) ? SpriteDirection.Up : SpriteDirection.Down;
+                this.SpriteDirection = (this.DestinationY > this.Position.Y) ? SpriteDirection.Right : SpriteDirection.Left;
 
             DestinationRectangle = currentRectangle;
 
-        }
+            // verifier si le rectangle de destination collisionne une pastille
+            Dot eat = Game.Maze.Dots.Where(w => w.InnerRectangle.Intersects(currentRectangle)).FirstOrDefault();
 
+            if (eat != null)
+            {
+                //Console.WriteLine($"Position inner => x:{eat.InnerRectangle.X}, y:{eat.InnerRectangle.Y}");
+                //Console.WriteLine(eat);
+                //Console.WriteLine(this);
+                Game.Maze.Dots.Remove(eat);
+            }
+            //Console.WriteLine(this);
+        }
         public int X { get; private set; }
         public int Y { get; private set; }
     }
