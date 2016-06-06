@@ -13,9 +13,9 @@ namespace MonoPac
         SpriteBatch spriteBatch;
 
         Maze maze;
+        SpriteFont font;
         Pacman pacman;
         
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -43,6 +43,7 @@ namespace MonoPac
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            
         }
 
         /// <summary>
@@ -53,6 +54,7 @@ namespace MonoPac
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Content.Load<SpriteFont>("Font/pacfont");
             pacman = new Pacman(this, Content.Load<Texture2D>("Images/Pacman"), new Vector2(448, 848));
             // TODO: use this.Content to load your game content here
             maze = new Maze(this);
@@ -97,6 +99,7 @@ namespace MonoPac
             spriteBatch.Begin();
 
             maze.Draw();
+            spriteBatch.DrawString(font, $"SCORE : {pacman.Score}", new Vector2(10, 10), Color.White);
             pacman.Draw();
 
             spriteBatch.End();

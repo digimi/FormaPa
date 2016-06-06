@@ -193,3 +193,9 @@
 /processorParam:TextureFormat=Color
 /build:Images\TopLeft.png
 
+#begin Font/pacfont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:Font/pacfont.spritefont
+

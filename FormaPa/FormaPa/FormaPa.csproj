@@ -50,6 +50,7 @@
     <Compile Include="Sprites\Ghost.cs" />
     <Compile Include="Sprites\IDot.cs" />
     <Compile Include="Sprites\ISprite.cs" />
+    <Compile Include="Sprites\Score.cs" />
     <Compile Include="Sprites\SpriteBase.cs" />
     <Compile Include="Sprites\SpriteDirection.cs" />
     <Compile Include="Sprites\SpriteTypes.cs" />

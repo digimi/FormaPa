@@ -76,13 +76,14 @@ namespace MonoPac
                 switch (value)
                 {
                     case SpriteDirection.Up:
-                        rad = ((float)Math.PI / 180.0f) * 25.0f;
+                        rad = ((float)Math.PI / 180.0f) * 270.0f;
+                        //rad = 0.0f;
                         break;
                     case SpriteDirection.Down:
-                        rad = ((float)Math.PI / 180.0f) * 180.0f;
+                        rad = ((float)Math.PI / 180.0f) * 90.0f;
                         break;
                     case SpriteDirection.Left:
-                        rad = ((float)Math.PI / 180.0f) * 270.0f;
+                        rad = ((float)Math.PI / 180.0f) * 180.0f;
                         this.rotation = 0.0f;
                         break;
                     case SpriteDirection.Right:

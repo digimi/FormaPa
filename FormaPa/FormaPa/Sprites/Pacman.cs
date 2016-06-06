@@ -89,21 +89,22 @@ namespace MonoPac
             }
 
             this.SourceRectangle = new Rectangle(32 * col, 32 * row, 32, 32);
-            if (this.DestinationX != currentRectangle.X)
-                this.SpriteDirection = (this.DestinationX > this.Position.X) ? SpriteDirection.Up : SpriteDirection.Down;
-            if (this.DestinationY != currentRectangle.Y)
-                this.SpriteDirection = (this.DestinationY > this.Position.Y) ? SpriteDirection.Right : SpriteDirection.Left;
+            
+            if (x > 0) this.SpriteDirection = SpriteDirection.Right;
+            if (x < 0) this.SpriteDirection = SpriteDirection.Left;
+            if (y > 0) this.SpriteDirection = SpriteDirection.Down;
+            if (y < 0) this.SpriteDirection = SpriteDirection.Up;
 
             DestinationRectangle = currentRectangle;
 
+
             // verifier si le rectangle de destination collisionne une pastille
             Dot eat = Game.Maze.Dots.Where(w => w.InnerRectangle.Intersects(currentRectangle)).FirstOrDefault();
+            // TODO : verifier si pacman collisionne un Fantome
 
             if (eat != null)
             {
-                //Console.WriteLine($"Position inner => x:{eat.InnerRectangle.X}, y:{eat.InnerRectangle.Y}");
-                //Console.WriteLine(eat);
-                //Console.WriteLine(this);
+                this.Score += eat.Score;
                 Game.Maze.Dots.Remove(eat);
             }
             //Console.WriteLine(this);
