@@ -23,18 +23,31 @@ namespace MonoPac
         private float layerDepth = 0.0f;
         private int destinationY;
         private int destinationX;
+        private int directionY;
+        private int directionX;
+
+        #region Constructors
 
         public SpriteBase(Game1 game)
         {
             this.Game = game;
         }
-
         public SpriteBase(Game1 game, Texture2D texture, Vector2 position)
         {
             this.Texture = texture;
             this.Game = game;
             this.Position = position;
         }
+        public SpriteBase(Game1 game, string textureName, Vector2 position)
+        {
+            this.TextureName = textureName;
+            this.Game = game;
+            this.Position = position;
+        }
+
+        #endregion
+
+        #region Properties
 
         public Game1 Game { get; private set; }
 
@@ -63,6 +76,8 @@ namespace MonoPac
             get;
             set;
         }
+
+        public string TextureName { get; set; }
 
         public SpriteDirection SpriteDirection
         {
@@ -104,7 +119,8 @@ namespace MonoPac
             {
                 return destinationRectangle;
             }
-            set {
+            set
+            {
                 this.destinationX = value.Value.X;
                 this.destinationY = value.Value.Y;
                 this.position = new Vector2(value.Value.X, value.Value.Y);
@@ -156,7 +172,9 @@ namespace MonoPac
 
         public int Score { get; set; }
 
-        public List<TiledPosition> TiledPositions { get; set; }
+        public List<TiledPosition> TiledPositions { get; set; } 
+        
+        #endregion
 
         public void Draw()
         {
@@ -196,6 +214,11 @@ namespace MonoPac
             }
         }
 
+        public void LoadContent()
+        {
+            Texture = Game.Content.Load<Texture2D>(TextureName);
+        }
+
         public int DestinationX
         {
             get
@@ -220,11 +243,10 @@ namespace MonoPac
 
         public int Velocity { get; set; }
 
-
         public override string ToString()
         {
             return $"Position {GetType().Name} => X = {this.Position.X} : Y = {this.Position.Y} -- Top:{this.Rectangle.Top}, Left:{this.Rectangle.Left}, Bottom:{this.Rectangle.Bottom}, Right:{this.Rectangle.Right} -- Size = Height:{this.Rectangle.Height}, Width:{this.Rectangle.Width}";
         }
-
+        
     }
 }

@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Collision.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Pinky.cs" />
     <Compile Include="Sprites\Pacman.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

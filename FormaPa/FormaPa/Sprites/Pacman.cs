@@ -20,8 +20,7 @@ namespace MonoPac
             Origin = new Vector2(16, 16);
         }
 
-
-        public Pacman(Game1 game, Texture2D texture, Vector2 position) : base(game, texture, position)
+        public Pacman(Game1 game, string texture, Vector2 position) : base(game, texture, position)
         {
             Origin = new Vector2(16, 16);
             DestinationRectangle = new Rectangle((int)position.X, (int)position.Y, 32, 32);
@@ -66,11 +65,9 @@ namespace MonoPac
                 nextY = 0;
                 x = -Velocity;
             }
-            // mettre en place la direction courante
-
-
-            // Construire rectangle de destination
-            // Verifier si intersect Wall avec direction courante
+            /* mettre en place la direction courante
+             Construire rectangle de destination
+             Verifier si intersect Wall avec direction courante */
             currentRectangle.X += x;
             canHorizontalMove = Game.Maze.Walls.Where(w => w.Rectangle.Intersects(currentRectangle)).Count() == 0;
             // si mouvement impossible changer de direction
@@ -89,7 +86,7 @@ namespace MonoPac
             }
 
             this.SourceRectangle = new Rectangle(32 * col, 32 * row, 32, 32);
-            
+
             if (x > 0) this.SpriteDirection = SpriteDirection.Right;
             if (x < 0) this.SpriteDirection = SpriteDirection.Left;
             if (y > 0) this.SpriteDirection = SpriteDirection.Down;
@@ -109,6 +106,7 @@ namespace MonoPac
             }
             //Console.WriteLine(this);
         }
+
         public int X { get; private set; }
         public int Y { get; private set; }
     }

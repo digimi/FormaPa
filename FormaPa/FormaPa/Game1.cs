@@ -15,6 +15,7 @@ namespace MonoPac
         Maze maze;
         SpriteFont font;
         Pacman pacman;
+        Pinky pinky;
         
         public Game1()
         {
@@ -22,7 +23,9 @@ namespace MonoPac
             graphics.PreferredBackBufferHeight = 1152;
             graphics.PreferredBackBufferWidth = 896;
             Content.RootDirectory = "Content";
-
+            pacman = new Pacman(this, "Images/Pacman", new Vector2(448, 848));
+            pinky = new Pinky(this, "Images/Blinky", new Vector2(448, 464));
+            maze = new Maze(this);
         }
 
         public SpriteBatch SpriteBatch
@@ -42,8 +45,7 @@ namespace MonoPac
         {
             // TODO: Add your initialization logic here
 
-            base.Initialize();
-            
+            base.Initialize();            
         }
 
         /// <summary>
@@ -55,9 +57,10 @@ namespace MonoPac
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("Font/pacfont");
-            pacman = new Pacman(this, Content.Load<Texture2D>("Images/Pacman"), new Vector2(448, 848));
+           // pacman = new Pacman(this, Content.Load<Texture2D>("Images/Pacman"), new Vector2(448, 848));
+            pacman.LoadContent();
+            pinky.LoadContent();
             // TODO: use this.Content to load your game content here
-            maze = new Maze(this);
             maze.LoadContent();
         }
 
@@ -83,6 +86,7 @@ namespace MonoPac
             // TODO: Add your update logic here
             maze.Update();
             pacman.Update(maze);
+            pinky.Update(maze);
 
             base.Update(gameTime);
         }
@@ -101,6 +105,7 @@ namespace MonoPac
             maze.Draw();
             spriteBatch.DrawString(font, $"SCORE : {pacman.Score}", new Vector2(10, 10), Color.White);
             pacman.Draw();
+            pinky.Draw();
 
             spriteBatch.End();
 
@@ -108,5 +113,13 @@ namespace MonoPac
         }
 
         public Maze Maze { get { return this.maze; } }
+        
+    
+        internal Pacman Pacman
+        {
+            get { return pacman; }
+            set { pacman = value; }
+        }
+
     }
 }

@@ -11,12 +11,18 @@ namespace MonoPac
     /// </summary>
     public class Wall : SpriteBase
     {
+
         public Wall(Game1 game, Texture2D texture, Vector2 position) :
             base(game)
         {
             this.Texture = texture;
             this.Position = position;
             this.Origin = new Vector2(16, 16);
+        }
+
+        public Wall(Game1 game, Texture2D texture, Vector2 position, Color color) : this(game, texture, position)
+        {
+            this.Color = color;
         }
 
         public void Update()
